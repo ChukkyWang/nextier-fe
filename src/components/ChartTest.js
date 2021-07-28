@@ -24,9 +24,9 @@ function ChartTest() {
         
         const getData = async () => {
                 try{
-                        const res = await axios.get('/power/').then((data) => {
+                        const res = await axios.get('https://nextier-api.herokuapp.com/powerList').then((data) => {
                                 //console.log(data.data.powerList)
-                                data.data.powerList.forEach(result =>{
+                                data.data.forEach(result =>{
                                         result.powerQs.forEach(newStuff => {
                                                 if(result.id === 2015){
                                                         dataDisplay.push(newStuff.AvaliableGen);
@@ -41,7 +41,7 @@ function ChartTest() {
                                                 })
                                                 
                                         }) 
-                                        setPower(data.data.powerList)
+                                        setPower(data.data)
                         })
                         
                         
